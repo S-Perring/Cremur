@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% for task in tasks %}
+            {{task.category_name}}
+            {{task.customer_name}}
+            {{task.customer_eircode}}
+            {{task.customer_number}}
+            {{task.call_description}}
+            {{task.is_urgent}}
+            {{task.engineer_name}}
+            {{task.call_date}}
+            {{task.call_time}}
+        {% endfor %}
+    </body>
+</html>
