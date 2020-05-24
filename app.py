@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'Cremur'
-app.config["MONGO_URI"] = 'mongodb+srv://Cremur:cremur@cluster0-odwyr.mongodb.net/Cremur?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'mongodb+srv://Cremur:cremur@cluster0-odwyr.mongodb.net/cremur?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
