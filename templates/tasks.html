@@ -1,8 +1,6 @@
-<html>
-    <head>
+{% extends 'base.html'%}
+{% block content %}
 
-    </head>
-    <body>
         {% for task in tasks %}
             {{task.category_name}}
             {{task.customer_name}}
@@ -14,5 +12,4 @@
             {{task.call_date}}
             {{task.call_time}}
         {% endfor %}
-    </body>
-</html>
+{% endblock %}
