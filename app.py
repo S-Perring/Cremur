@@ -24,11 +24,44 @@ def add_task():
 
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
-    tasks = mongo.db.tasks
+    tasks =  mongo.db.tasks
     tasks.insert_one(request.form.to_dict())
     return redirect(url_for('get_tasks'))
-    
-    
+
+
+@app.route('/edit_task/<task_id>')
+def edit_task(task_id):
+    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    all_categories =  mongo.db.categories.find()
+    return render_template('edittask.html', task=the_task,
+                           categories=all_categories)
+
+
+@app.route('/update_task/<task_id>', methods=["POST"])
+def update_task(task_id):
+    tasks = mongo.db.tasks
+    tasks.update( {'_id': ObjectId(task_id)},
+    {
+        'category_name':request.form.get('category_name'),
+        'customer_name':request.form.get('customer_name'),
+        'customer_eircode':request.form.get('customer_eircode'),
+        'call_description': request.form.get('call_description'),
+        'call_date': request.form.get('call_date'),
+        'call_time': request.form.get('call_time')
+        'customer_number': request.form.get('customer_number')
+        'engineer_name': request.form.get('engineer_name')
+        'is_urgent':request.form.get('is_urgent')
+        
+    })
+    return redirect(url_for('get_tasks'))
+
+
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
+    return redirect(url_for('get_tasks'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
