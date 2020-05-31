@@ -1,5 +1,5 @@
 .main-pic {
-    background-image: url(..static/css/images/logo_black.png);
+    background-image: url(../assets/images/logo_black.png);
 }
 
 .btn_small {
@@ -12,4 +12,9 @@
 
 .task_header {
     margin-top: 5px;
+}
+
+.nav-wrapper {
+    background-color: rgb(252, 4, 4);
+
 }

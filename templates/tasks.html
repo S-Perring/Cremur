@@ -9,7 +9,7 @@
                 </div>
             <div class="switch">
                 <label>
-                  <input id="is_urgent" name="is_urgent" type="checkbox">
+                  <input type="checkbox">
                   <span class="lever"></span>
                   Completed
                 </label>
@@ -21,7 +21,7 @@
             </div>
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
-                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Done</a>
+                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Del</a>
                     <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
                     
                 </div>
