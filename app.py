@@ -47,7 +47,6 @@ def update_task(task_id):
         'customer_eircode':request.form.get('customer_eircode'),
         'customer_number':request.form.get('customer_number'),
         'call_description':request.form.get('call_description'),
-        'is_urgent':request.form.get('is_urgent'),
         'engineer_name':request.form.get('engineer_name'),
         'call_date':request.form.get('call_date'),
         'call_time':request.form.get('call_time')

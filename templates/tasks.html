@@ -16,12 +16,12 @@
         </div>
             <div class="collapsible-body">
                 <span>
-                    {{task.call_description}} - {{task.is_urgent}} - {{task.customer_eircode}} - {{task.customer_number}}
+                    {{task.call_description}} - {{task.customer_eircode}} - {{task.customer_number}}
                 </span>
             </div>
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
-                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Del</a>
+                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small orange">Del</a>
                     <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small yellow">Edit</a>
                     
                 </div>
