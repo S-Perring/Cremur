@@ -3,23 +3,15 @@
     <ul class="collapsible" data-collapsible="accordion">
     {% for task in tasks %}
         <li>
-                <div class="collapsible-header">
-                <div class=" task_header col s1">
-                    <i class="material-icons">expand_more</i>{{task.call_time}}
+                <div class=" task_header col s9">
+                    <strong>{{task.task_name}}</strong> - {{task.due_date}}
                 </div>
-                           <div>
-                <div class="task_header col s2">
-                    <i class="material-icons">expand_more</i>{{task.call_date}}
-                </div>
-                            <div>
-                <div class="task_header col s2">
-                    <i class="material-icons">expand_more</i> {{task.engineer_name}} - {{task.category_name}}
-                </div>
-            <div>
-                <div class="task_header col s2">
-                    <i class="material-icons">expand_more</i>{{task.customer_name}}
-                </div>
-            <div class="switch">
+            </div>
+            <div class="collapsible-body">
+                <span>
+                {{task.task_description}} 
+            </span>
+            </div>
                 <label>
                   <input type="checkbox">
                   <span class="lever"></span>
