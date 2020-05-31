@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId 
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'Cremur'
@@ -9,10 +9,11 @@ app.config["MONGO_URI"] = 'mongodb+srv://Cremur:cremur@cluster0-odwyr.mongodb.ne
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
 @app.route('/get_tasks')
 def get_tasks():
-    return render_template("tasks.html", 
+    return render_template("tasks.html",
                            tasks=mongo.db.tasks.find())
 
 
@@ -24,15 +25,15 @@ def add_task():
 
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
-    tasks =  mongo.db.tasks
+    tasks = mongo.db.tasks
     tasks.insert_one(request.form.to_dict())
     return redirect(url_for('get_tasks'))
 
 
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
-    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    all_categories =  mongo.db.categories.find()
+    the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    all_categories = mongo.db.categories.find()
     return render_template('edittask.html', task=the_task,
                            categories=all_categories)
 
@@ -40,9 +41,8 @@ def edit_task(task_id):
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
     tasks = mongo.db.tasks
-    tasks.update( {'id': ObjectId(task_id)},
-    {
-        'category_name':request.form.get('category_name'),
+    tasks.update({'_id': ObjectId(task_id)},
+    {   'category_name':request.form.get('category_name'),
         'customer_name':request.form.get('customer_name'),
         'customer_eircode':request.form.get('customer_eircode'),
         'customer_number':request.form.get('customer_number'),
@@ -50,7 +50,6 @@ def update_task(task_id):
         'engineer_name':request.form.get('engineer_name'),
         'call_date':request.form.get('call_date'),
         'call_time':request.form.get('call_time')
-        
     })
     return redirect(url_for('get_tasks'))
 
