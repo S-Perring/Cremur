@@ -1,5 +1,7 @@
 body {
     background-color: rgb(160, 153, 153);
+    background-image: url(../images/logo_black.png);
+    opacity: 0.3;
 }
 
 .btn_small {
