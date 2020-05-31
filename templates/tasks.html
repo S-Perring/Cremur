@@ -8,15 +8,15 @@
                     <i class="material-icons">expand_more</i>{{task.call_time}}
                 </div>
                            <div>
-                <div class=" task_header col s2">
+                <div class="task_header col s2">
                     <i class="material-icons">expand_more</i>{{task.call_date}}
                 </div>
                             <div>
-                <div class=" task_header col s2">
+                <div class="task_header col s2">
                     <i class="material-icons">expand_more</i> {{task.engineer_name}} - {{task.category_name}}
                 </div>
             <div>
-                <div class=" task_header col s2">
+                <div class="task_header col s2">
                     <i class="material-icons">expand_more</i>{{task.customer_name}}
                 </div>
             <div class="switch">
@@ -37,11 +37,6 @@
                     <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small yellow">Edit</a>
                     
                 </div>
-            </div>
-            <div class="collapsible-body">
-                <span>
-                    {{task.call_description}} - {{task.customer_eircode}} - {{task.customer_number}}
-                </span>
             </div>
             
         </li>
