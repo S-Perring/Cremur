@@ -99,6 +99,15 @@ def add_category():
     return render_template('addcategory.html')
 
 
+@app.route("/find_customer")
+def find_customer():
+    query = request.args.get("search")
+    search_term = mongo.db.recipes.find({"customer": {"$regex": query}}) 
+    print(search_term)
+    all_categories = list(mongo.db.categories.find())
+    return render_template("search.html", categories=all_categories, search = search_term)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

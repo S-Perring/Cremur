@@ -1,4 +1,6 @@
-.body {
+@import url('https://fonts.googleapis.com/css?family=Garamond:100,200,300,400,500,600,700');
+
+body {
     background-color: rgb(160, 153, 153);
 }
 
@@ -16,6 +18,7 @@
 }
 
 .nav-wrapper {
+    font-weight: bold;
     background-color: rgb(252, 4, 4);
 
 }
