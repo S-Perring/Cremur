@@ -1,8 +1,9 @@
-.main-pic {
-    background-image: url(../assets/images/logo_black.png);
+.body {
+    background-color: rgb(160, 153, 153);
 }
 
 .btn_small {
+    background-color: orange;
     height: 24px;
     width: 60px;
     line-height: 24px;
