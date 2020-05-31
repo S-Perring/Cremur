@@ -4,14 +4,26 @@
         {% for task in tasks %}
         <li>
             <div class="collapsible-header">
+                <div class=" task_header col s6">
+                    <i class="material-icons">expand_more</i> {{task.customer_name}} - {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
+                </div>
+            <div class="switch">
+                <label>
+                  <input id="is_urgent" name="is_urgent" type="checkbox">
+                  <span class="lever"></span>
+                  Completed
+                </label>
+        </div>
+            <div class="collapsible-body">
+                <span>
+                    {{task.call_description}} - {{task.is_urgent}} - {{task.customer_eircode}} - {{task.customer_number}}
+                </span>
+            </div>
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
                     <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Done</a>
                     <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
                     
-                </div>
-                <div class=" task_header col s6">
-                    <i class="material-icons">expand_more</i> {{task.customer_name}} - {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
                 </div>
             </div>
             <div class="collapsible-body">
