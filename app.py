@@ -102,7 +102,7 @@ def add_category():
 @app.route("/find_customer")
 def find_customer():
     query = request.args.get("search")
-    search_term = mongo.db.recipes.find({"customer": {"$regex": query}}) 
+    search_term = mongo.db.customer.find({"customer": {"$regex": query}}) 
     print(search_term)
     all_categories = list(mongo.db.categories.find())
     return render_template("search.html", categories=all_categories, search = search_term)

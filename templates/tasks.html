@@ -14,19 +14,11 @@
                      </div>
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
-        {% for task in tasks %}
+        {% for customer in search %}
         <li>
-                    <div class="collapsible-header">
-                <div class=" task_header col3">
-                    <i class="material-icons">expand_more</i> {{task.engineer_name}} - {{task.category_name}}
-                </div>
-                            <div class="collapsible-header">
-                <div class=" task_header col s3">
-                    <i class="material-icons">expand_more</i>{{task.customer_name}}
-                </div>
             <div class="collapsible-header">
-                <div class=" task_header col s3">
-                    <i class="material-icons">expand_more</i>{{task.call_date}} - {{task.call_time}}
+                <div class=" task_header col s6">
+                    <i class="material-icons">expand_more</i> {{task.engineer_name}} - {{task.category_name}} - {{task.customer_name}} - {{task.call_date}} - {{task.call_time}}
                 </div>
             <div class="switch">
                 <label>
@@ -56,5 +48,5 @@
         </li>
         {% endfor %}
     </ul>
-
+</div>
 {% endblock %}
