@@ -1,5 +1,5 @@
 {% extends 'base.html'%} {% block content %}
- <div class="search col m12 s12">
+ <div class="search col s4">
          <nav>
             <div class="nav-wrapper">
                <form action="{{url_for('find_customer')}}">
@@ -17,15 +17,15 @@
         {% for task in tasks %}
         <li>
                     <div class="collapsible-header">
-                <div class=" task_header col s6">
+                <div class=" task_header col3">
                     <i class="material-icons">expand_more</i> {{task.engineer_name}} - {{task.category_name}}
                 </div>
                             <div class="collapsible-header">
-                <div class=" task_header col s6">
+                <div class=" task_header col s3">
                     <i class="material-icons">expand_more</i>{{task.customer_name}}
                 </div>
             <div class="collapsible-header">
-                <div class=" task_header col s6">
+                <div class=" task_header col s3">
                     <i class="material-icons">expand_more</i>{{task.call_date}} - {{task.call_time}}
                 </div>
             <div class="switch">
