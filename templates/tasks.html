@@ -11,12 +11,12 @@
                     
                 </div>
                 <div class=" task_header col s6">
-                    <i class="material-icons">expand_more</i> {{task.customer_name}} - {{task.call_date}} - {{task.call_time}}
+                    <i class="material-icons">expand_more</i> {{task.customer_name}} - {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
                 </div>
             </div>
             <div class="collapsible-body">
                 <span>
-                    {{task.call_description}}
+                    {{task.call_description}} - {{task.is_urgent}} - {{task.customer_eircode}} - {{task.customer_number}}
                 </span>
             </div>
             
