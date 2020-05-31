@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -8,7 +9,6 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('get_tasks')}}"><img src= url (../"images/logo_black.png")/></a>
                 <a href="{{url_for('get_tasks')}}" class="brand-logo">Cremur Service Call Manager</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -32,8 +32,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.collapsible').collapsible();
-            $('select').material_select();
-            $(".button-collapse").sideNav();
+            $('.select').material_select();
+            $('.button-collapse').sideNav();
             $('.timepicker').timepicker();
         });
 
