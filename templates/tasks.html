@@ -1,17 +1,14 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
-    {% for task in tasks %}
+        {% for task in tasks %}
         <li>
-                <div class=" task_header col s9">
-                    <strong>{{task.task_name}}</strong> - {{task.due_date}}
+            <div class="collapsible-header">
+                <div class=" task_header col s6">
+                    <i class="material-icons">expand_more</i> {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
+                    <i class="material-icons">expand_more</i> {{task.category_name}} - {{task.customer_name}}
                 </div>
-            </div>
-            <div class="collapsible-body">
-                <span>
-                {{task.task_description}} 
-            </span>
-            </div>
+            <div class="switch">
                 <label>
                   <input type="checkbox">
                   <span class="lever"></span>
@@ -25,14 +22,19 @@
             </div>
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
-                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small orange">Del</a>
+                    <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Del</a>
+                    <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
                     <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small yellow">Edit</a>
-                    
+
                 </div>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    {{task.call_description}} - {{task.customer_eircode}} - {{task.customer_number}}
+                </span>
             </div>
             
         </li>
         {% endfor %}
     </ul>
-</div>
 {% endblock %}
