@@ -3,9 +3,15 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+from os import path
+if path.exists("env.py"):
+    import env
+
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'Cremur'
-app.config["MONGO_URI"] = 'mongodb+srv://Cremur:cremur@cluster0-odwyr.mongodb.net/cremur?retryWrites=true&w=majority'
+
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -47,8 +53,9 @@ def edit_task(task_id):
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
     tasks = mongo.db.tasks
-    tasks.update({'_id': ObjectId(task_id)},
-    {   'category_name':request.form.get('category_name'),
+    tasks.update( {'_id': ObjectId(task_id)},
+    {
+        'category_name':request.form.get('category_name'),
         'customer_name':request.form.get('customer_name'),
         'customer_eircode':request.form.get('customer_eircode'),
         'customer_number':request.form.get('customer_number'),
