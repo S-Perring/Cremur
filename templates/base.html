@@ -15,13 +15,13 @@
                     <li><a href="{{url_for('get_tasks')}}">Live Calls</a></li>
                     <li><a href="{{url_for('add_task')}}">Schedule Call</a></li>
                     <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
-                    <li><a href="{{url_for('get_categories')}}">Search</a></li>
+                    <li><a href="{{url_for('search_tasks')}}">Search</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('get_tasks')}}">Home</a></li>
                     <li><a href="{{url_for('add_task')}}">New Task</a></li>
                     <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
-                    <li><a href="{{url_for('get_categories')}}">Search</a></li>
+                    <li><a href="{{url_for('search_tasks')}}">Search</a></li>
                 </ul>
             </div>
         </nav>
@@ -36,7 +36,6 @@
             $('.collapsible').collapsible();
             $('.select').material_select();
             $('.button-collapse').sideNav();
-            $('.datepicker').datepicker();
             $('.timepicker').timepicker();
         });
 

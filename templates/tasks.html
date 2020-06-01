@@ -1,12 +1,16 @@
 {% extends 'base.html'%} {% block content %}
 
+<div class="row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for task in tasks %}
         <li>
             <div class="collapsible-header">
-                <div class=" task_header col s6">
-                    <i class="material-icons">expand_more</i> {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
-                    <i class="material-icons">expand_more</i> {{task.category_name}} - {{task.customer_name}}
+                <div class=" task_header col s9">
+                    <i class="material-icons">expand_more</i> {{task.call_date}}
+                    <i class="material-icons">expand_more</i> {{task.call_time}}
+                    <i class="material-icons">expand_more</i> {{task.engineer_name}}
+                    <i class="material-icons">expand_more</i> {{task.category_name}}
+                    <i class="material-icons">expand_more</i> {{task.customer_name}}
                 </div>
             <div class="switch">
                 <label>

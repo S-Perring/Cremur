@@ -17,6 +17,12 @@ def get_tasks():
                            tasks=mongo.db.tasks.find())
 
 
+@app.route('/search_tasks')
+def search_tasks():
+    return render_template("search.html",
+                           tasks=mongo.db.tasks.find())
+
+
 @app.route('/add_task')
 def add_task():
     return render_template('addtask.html',
@@ -66,6 +72,7 @@ def get_categories():
                            categories=mongo.db.categories.find())
 
 
+
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
@@ -96,14 +103,6 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
-
-
-@app.route("/find_customer")
-def find_customer():
-    query = request.args.get("search")
-    search_term = mongo.db.customer_name.find({"customer": {"$regex": query}}) 
-    all_categories = list(mongo.db.categories.find())
-    return render_template("search.html", categories=all_categories, search = search_term)
 
 
 if __name__ == '__main__':

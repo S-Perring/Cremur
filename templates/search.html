@@ -1,33 +1,27 @@
 {% extends 'base.html'%} {% block content %}
 
-<div class="row" class="search">
-      <div class="search col m12 s12">
-         <nav>
-            <div class="nav-wrapper">
-               <form action="{{url_for('find_customer')}}">
-                  <div class="input-field">
-                     <input id="search" type="search" name="search" required>
-                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                     <i class="material-icons">close</i>
-                  </div>
-                  <div id="search_btn">
-                     <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Search
-                     </button>
-                     </div>
-               </form>
-            </div>
-         </nav>
+<div class="col s6" class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Search</div>
+          </div>
+          <input type="text" class="form-control custom-search" placeholder="Input search...">
+        </div>
       </div>
+
 <div class="row">
 
 <ul class="collapsible" data-collapsible="accordion">
-        {% for customer in search %}
+        {% for task in tasks %}
         <li>
             <div class="collapsible-header">
-                <div class=" task_header col s6">
-                    <i class="material-icons">expand_more</i> {{task.call_date}} - {{task.call_time}} - {{task.engineer_name}}
-                    <i class="material-icons">expand_more</i> {{task.category_name}} - {{task.customer_name}}
+                <div class=" task_header col s9">
+                    <i class="material-icons">expand_more</i> {{task.call_date}}
+                    <i class="material-icons">expand_more</i> {{task.call_time}}
+                    <i class="material-icons">expand_more</i> {{task.engineer_name}}
+                    <i class="material-icons">expand_more</i> {{task.category_name}}
+                    <i class="material-icons">expand_more</i> {{task.customer_name}}
                 </div>
+
             <div class="switch">
                 <label>
                   <input type="checkbox">
