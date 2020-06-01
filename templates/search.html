@@ -1,7 +1,27 @@
 {% extends 'base.html'%} {% block content %}
 
-    <ul class="collapsible" data-collapsible="accordion">
-        {% for task in tasks %}
+<div class="row" class="search">
+      <div class="search col m12 s12">
+         <nav>
+            <div class="nav-wrapper">
+               <form action="{{url_for('find_customer')}}">
+                  <div class="input-field">
+                     <input id="search" type="search" name="search" required>
+                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                     <i class="material-icons">close</i>
+                  </div>
+                  <div id="search_btn">
+                     <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Search
+                     </button>
+                     </div>
+               </form>
+            </div>
+         </nav>
+      </div>
+<div class="row">
+
+<ul class="collapsible" data-collapsible="accordion">
+        {% for customer in search %}
         <li>
             <div class="collapsible-header">
                 <div class=" task_header col s6">
@@ -36,4 +56,5 @@
         </li>
         {% endfor %}
     </ul>
+
 {% endblock %}
