@@ -72,7 +72,6 @@ def get_categories():
                            categories=mongo.db.categories.find())
 
 
-
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
@@ -98,6 +97,14 @@ def insert_category():
     category_doc = {'category_name': request.form.get('category_name')}
     mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
+
+
+@app.route("/find_customer")
+def find_customer():
+    query = request.args.get("search")
+    search_term = mongo.db.customer_name.find({"customers": {"$eq": query}}) 
+    all_categories = list(mongo.db.categories.find())
+    return render_template("search.html", categories=all_categories, search = search_term)
 
 
 @app.route('/add_category')

@@ -1,27 +1,33 @@
 {% extends 'base.html'%} {% block content %}
-
-<div class="col s6" class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">Search</div>
-          </div>
-          <input type="text" class="form-control custom-search" placeholder="Input search...">
-        </div>
-      </div>
-
+<div class="row">                  
+<div>
+      <div class="search col s6">
+         <nav>
+            <div class="nav-wrapper">
+               <form action="{{url_for('search_tasks')}}">
+                  <div class="input-field">
+                     <input id="search" type="search" name="search" required>
+                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                     <i class="material-icons">close</i> 
+            </form> 
+            </div>
+         </nav>
+</div>
+</div>
+</div>
 <div class="row">
 
-<ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible" data-collapsible="accordion">
         {% for task in tasks %}
         <li>
             <div class="collapsible-header">
-                <div class=" task_header col s9">
+                <div class=" task_header col s10">
                     <i class="material-icons">expand_more</i> {{task.call_date}}
                     <i class="material-icons">expand_more</i> {{task.call_time}}
                     <i class="material-icons">expand_more</i> {{task.engineer_name}}
                     <i class="material-icons">expand_more</i> {{task.category_name}}
                     <i class="material-icons">expand_more</i> {{task.customer_name}}
                 </div>
-
             <div class="switch">
                 <label>
                   <input type="checkbox">
@@ -29,15 +35,9 @@
                   Completed
                 </label>
         </div>
-            <div class="collapsible-body">
-                <span>
-                    {{task.call_description}} - {{task.customer_eircode}} - {{task.customer_number}}
-                </span>
-            </div>
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
                     <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small orange">Del</a>
-                    <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small yellow">Edit</a>
 
                 </div>
             </div>
@@ -50,5 +50,6 @@
         </li>
         {% endfor %}
     </ul>
-
+ </div>
+ </section>
 {% endblock %}
