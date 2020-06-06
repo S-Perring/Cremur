@@ -19,15 +19,17 @@ body {
 .nav-wrapper {
     font-weight: bold;
     background-color: rgb(252, 4, 4);
-
 }
 
 .row { 
     background-color: #ffffff;
     margin-top: 8px;
-
 }
 
 .find {
+    text-align: center;
+}
+
+.i {
     text-align: center;
 }
